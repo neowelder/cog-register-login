@@ -123,6 +123,26 @@ echo		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->mail\",\"$thi
 		return $array;
 	}
 
+	public static function getAllByEmail($mail){
+		$sql = "select * from ".self::$tablename." where mail=\"$mail\"";
+		$query = Executor::doit($sql);
+		$array = array();
+		$cnt = 0;
+		while($r = $query[0]->fetch_array()){
+			$array[$cnt] = new UserData();
+			$array[$cnt]->id = $r['id'];
+			$array[$cnt]->name = $r['name'];
+			$array[$cnt]->mail = $r['mail'];
+			$array[$cnt]->image = $r['image'];
+			$array[$cnt]->password = $r['password'];
+			$array[$cnt]->is_admin = $r['is_admin'];
+			$array[$cnt]->is_active = $r['is_active'];
+			$array[$cnt]->created_at = $r['created_at'];
+			$cnt++;
+		}
+		return $array;
+	}
+
 
 }
 
