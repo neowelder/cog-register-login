@@ -1,6 +1,6 @@
 <div class='row'>
 <div class='col-md-12'>
-	<img src="res/images/cog-logo.png">
+	<img src="res/images/cog-logo.png" class="img-responsive">
 	<br><br><br>
 <div class='jumbotron'>
 	<div class='container'>
